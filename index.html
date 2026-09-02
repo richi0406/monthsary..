@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Monthsary.</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Segoe UI", sans-serif;
+    background: #fff;
+    color: #5d4650;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    color: #f5b7c8;
+    opacity: .45;
+    animation: floatHeart 7s linear infinite;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 20px; }
+.heart:nth-child(2) { left: 25%; animation-delay: 2s; font-size: 28px; }
+.heart:nth-child(3) { left: 45%; animation-delay: 4s; font-size: 18px; }
+.heart:nth-child(4) { left: 70%; animation-delay: 1s; font-size: 25px; }
+.heart:nth-child(5) { left: 90%; animation-delay: 3s; font-size: 19px; }
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.card {
+    width: min(900px, 95vw);
+    min-height: 650px;
+    background: rgba(255,255,255,.9);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow:
+        0 20px 60px rgba(190, 130, 150, .18),
+        inset 0 0 0 1px #ffe5ed;
+    text-align: center;
+    position: relative;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    color: #df7597;
+    font-size: clamp(25px, 6vw, 40px);
+    font-family: Georgia, serif;
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #9b7b85;
+    font-size: 15px;
+}
+
+@keyframes titlePulse {
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+/* =========================
+   PHOTO COLLAGE
+========================= */
+
+.collage {
+    height: 230px;
+    max-width: 600px;
+    margin: 30px auto 20px;
+    position: relative;
+}
+
+.photo {
+    position: absolute;
+    width: 145px;
+    height: 175px;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 12px 25px rgba(120,80,90,.2);
+    border-radius: 5px;
+    transition: .5s;
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo:nth-child(1) {
+    left: 4%;
+    top: 20px;
+    transform: rotate(-12deg);
+    animation-delay: 0s;
+}
+
+.photo:nth-child(2) {
+    left: 28%;
+    top: 0;
+    transform: rotate(5deg);
+    animation-delay: .5s;
+}
+
+.photo:nth-child(3) {
+    right: 28%;
+    top: 10px;
+    transform: rotate(-5deg);
+    animation-delay: 1s;
+}
+
+.photo:nth-child(4) {
+    right: 4%;
+    top: 25px;
+    transform: rotate(12deg);
+    animation-delay: 1.5s;
+}
+
+.photo:hover {
+    transform: scale(1.1) rotate(0deg);
+    z-index: 10;
+}
+
+@keyframes photoFloat {
+    0%,100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -10px;
+    }
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    max-width: 650px;
+    margin: 20px auto;
+    background: #fff9fb;
+    border: 1px solid #f7dce5;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: left;
+    line-height: 1.8;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(210,130,150,.08);
+
+    animation: letterAppear 2s ease;
+}
+
+.letter-title {
+    text-align: center;
+    color: #dc7595;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 15px;
+    color: #df7597;
+    font-style: italic;
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   CLICK BUTTON
+========================= */
+
+.click-btn {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#ff9fba,#e97899);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(230,110,145,.3);
+    animation: buttonPulse 1.7s infinite;
+    transition: .3s;
+}
+
+.click-btn:hover {
+    transform: scale(1.08);
+}
+
+@keyframes buttonPulse {
+    50% {
+        box-shadow:
+            0 10px 35px rgba(230,110,145,.5),
+            0 0 0 10px rgba(255,180,200,.12);
+    }
+}
+
+/* =========================
+   CAKE AREA
+========================= */
+
+.cake-section {
+    display: none;
+    margin-top: 35px;
+    animation: cakeEntrance 1.5s ease forwards;
+}
+
+.cake-section.show {
+    display: block;
+}
+
+@keyframes cakeEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.blow-text {
+    color: #b78391;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    width: 270px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 100px;
+}
+
+/* candles */
+
+.candles {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 22px;
+}
+
+.candle {
+    width: 12px;
+    height: 65px;
+    border-radius: 5px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #ff91ad,
+        #ff91ad 7px,
+        #fff 7px,
+        #fff 13px
+    );
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+    width: 17px;
+    height: 24px;
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+    background: #ffb52e;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow:
+        0 0 10px #ffae00,
+        0 0 25px #ffcf62;
+    animation: flame 0.35s infinite alternate;
+}
+
+.flame::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 12px;
+    background: #fff3a6;
+    border-radius: 50%;
+    left: 5px;
+    top: 7px;
+}
+
+@keyframes flame {
+    from {
+        transform: translateX(-50%) scale(1) rotate(-3deg);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.1) rotate(4deg);
+    }
+}
+
+/* candle gets blown */
+
+.candle.blown .flame {
+    animation: blowOut .3s forwards;
+}
+
+@keyframes blowOut {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(-15px)
+            scale(.1);
+    }
+}
+
+/* cake layers */
+
+.cake-top {
+    width: 230px;
+    height: 55px;
+    margin: auto;
+    background: #ffb5c7;
+    border-radius: 15px 15px 8px 8px;
+    position: relative;
+    box-shadow: inset 0 -8px rgba(220,110,145,.15);
+}
+
+.icing {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 0;
+    background: #fff3f7;
+    border-radius: 15px;
+}
+
+.drip {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #fff3f7;
+    border-radius: 0 0 15px 15px;
+    top: 5px;
+}
+
+.drip:nth-child(2) { left: 35px; }
+.drip:nth-child(3) { left: 100px; height: 35px; }
+.drip:nth-child(4) { right: 35px; }
+
+.cake-bottom {
+    width: 270px;
+    height: 75px;
+    margin: -2px auto 0;
+    background: #f58eaa;
+    border-radius: 10px 10px 18px 18px;
+    box-shadow: inset 0 -10px rgba(200,80,115,.12);
+}
+
+.plate {
+    width: 320px;
+    height: 20px;
+    background: #f1d8df;
+    border-radius: 50%;
+    margin: -3px auto;
+}
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.message {
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: 25px;
+    color: #df7597;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    transition: 1s;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 15px;
+    top: -20px;
+    animation: confettiFall 3s linear forwards;
+    z-index: 100;
+}
+
+@keyframes confettiFall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .collage {
+        height: 180px;
+        transform: scale(.75);
+        margin: 5px auto;
+    }
+
+    .photo {
+        width: 120px;
+        height: 145px;
+    }
+
+    .letter {
+        font-size: 14px;
+    }
+
+    .cake {
+        transform: scale(.85);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+<div class="background">
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1 class="title">
+            Happy Monthsary ⚘
+        </h1>
+
+        <p class="subtitle">
+            Another months with you .✦ ݁˖
+        </p>
+
+
+        <!-- PHOTO COLLAGE -->
+        <div class="collage">
+
+            <div class="photo">
+                <img src="photo1.jpg" alt="Our Photo1">
+            </div>
+
+            <div class="photo">
+                <img src="photo2.jpg" alt="Our Photo 2">
+            </div>
+
+            <div class="photo">
+                <img src="photo3.jpg" alt="Our Photo 3">
+            </div>
+
+            <div class="photo">
+                <img src="photo4.jpg" alt="Our Photo 4">
+            </div>
+
+        </div>
+
+
+        <!-- LOVE LETTER -->
+        <div class="letter">
+
+            <div class="letter-title">
+                💌 A Little Letter For You baby
+            </div>
+
+            <p>
+                My love,
+            </p>
+
+            <p>
+                Happy monthsary to us! 
+                Every month with you is another little
+                chapter of our story that I am grateful
+                to have.
+            </p>
+
+            <p>
+                Thank you for staying, for understanding me,
+                for making me smile, and more memories.
+            </p>
+
+            <p>
+                I may not always have the perfect words,
+                but please know that I appreciate you more
+                than you know. I hope we continue to grow,
+                laugh, dream, and make memories together.
+            </p>
+
+            <p>
+                another months of us,
+                and many years, many more. 💕
+            </p>
+
+            <div class="signature">
+                Forever yours,<br>
+                🌹 Your Love
+            </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button class="click-btn" id="clickMe">
+             "CLICK ME"
+        </button>
+
+
+        <!-- CAKE -->
+
+        <div class="cake-section" id="cakeSection">
+
+            <p class="blow-text">
+                Try to blow it Baby mwua
+            </p>
+
+            <div class="cake">
+
+                <!-- 5 CANDLES -->
+                <div class="candles">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- CAKE -->
+
+                <div class="cake-top">
+
+                    <div class="icing"></div>
+
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+
+                </div>
+
+                <div class="cake-bottom"></div>
+
+                <div class="plate"></div>
+
+            </div>
+
+            <div class="message" id="message">
+                  Happy Monthsary, Habib albi! 
+                <br>
+                I love you so much! ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CLICK ME
+========================= */
+
+const clickMe = document.getElementById("clickMe");
+const cakeSection = document.getElementById("cakeSection");
+
+clickMe.addEventListener("click", async () => {
+
+    cakeSection.classList.add("show");
+
+    clickMe.innerHTML = "𑣿 More more months and Years for us baby 𑣿";
+
+    // Ask for microphone permission
+    startMicrophone();
+
+});
+
+
+/* =========================
+   MICROPHONE BLOW DETECTION
+========================= */
+
+let audioContext;
+let analyser;
+let microphone;
+let listening = false;
+
+async function startMicrophone() {
+
+    if (listening) return;
+
+    try {
+
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+                audio: true
+            });
+
+        audioContext =
+            new (window.AudioContext ||
+                 window.webkitAudioContext)();
+
+        analyser = audioContext.createAnalyser();
+
+        analyser.fftSize = 512;
+
+        microphone =
+            audioContext.createMediaStreamSource(stream);
+
+        microphone.connect(analyser);
+
+        listening = true;
+
+        detectBlow();
+
+    } catch(error) {
+
+        console.log("Microphone permission denied.");
+
+        /*
+           If microphone isn't available,
+           clicking the cake will still blow
+           the candles.
+        */
+
+        cakeSection.addEventListener(
+            "click",
+            blowCandles,
+            { once: true }
+        );
+    }
+}
+
+
+/* =========================
+   DETECT BLOW
+========================= */
+
+function detectBlow() {
+
+    if (!listening) return;
+
+    const data =
+        new Uint8Array(analyser.fftSize);
+
+    analyser.getByteTimeDomainData(data);
+
+    let sum = 0;
+
+    for(let i = 0; i < data.length; i++) {
+
+        const value =
+            (data[i] - 128) / 128;
+
+        sum += value * value;
+    }
+
+    const volume =
+        Math.sqrt(sum / data.length);
+
+    /*
+       Blow threshold.
+
+       Lower number = easier to blow
+       Higher number = need stronger blow
+    */
+
+    if(volume > 0.15) {
+
+        blowCandles();
+
+    }
+
+    requestAnimationFrame(detectBlow);
+}
+
+
+/* =========================
+   BLOW CANDLES
+========================= */
+
+let candlesBlown = false;
+
+function blowCandles() {
+
+    if(candlesBlown) return;
+
+    candlesBlown = true;
+
+    const candles =
+        document.querySelectorAll(".candle");
+
+    candles.forEach((candle, index) => {
+
+        setTimeout(() => {
+
+            candle.classList.add("blown");
+
+        }, index * 120);
+
+    });
+
+    setTimeout(() => {
+
+        document
+            .getElementById("message")
+            .classList.add("show");
+
+        createConfetti();
+
+    }, 900);
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const colors = [
+        "#ff8fab",
+        "#ffc2d1",
+        "#ffb3c6",
+        "#f7aef8",
+        "#ffd166",
+        "#cdb4db"
+    ];
+
+    for(let i = 0; i < 80; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 2) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * .5 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 4500);
+    }
+}
+
+
+/* =========================
+   OPTIONAL:
+   CLICK CAKE TO BLOW CANDLES
+========================= */
+
+document
+    .getElementById("cakeSection")
+    .addEventListener("dblclick", blowCandles);
+
+</script>
+
+</body>
+</html>
